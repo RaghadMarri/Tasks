@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640168298883",
+    "firebase_url": "https://fir-reminderapp.firebaseio.com",
+    "project_id": "fir-reminderapp",
+    "storage_bucket": "fir-reminderapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640168298883:android:be6f50eaec0f7cd607ceb6",
+        "android_client_info": {
+          "package_name": "com.example.reminderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640168298883-jd6lnjrp26eptqlj3u6nfo1tb5vmt1s9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnTJmGpmHtnFaGw4KfyFoH-qcHvFesEgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640168298883-jd6lnjrp26eptqlj3u6nfo1tb5vmt1s9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
