@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 
 
@@ -21,6 +22,7 @@ class NoteDetailsFragment : Fragment() {
     private lateinit var editNotetitle: EditText
     private lateinit var editNoteDescription: EditText
     private lateinit var note: Notes
+    private val bottomSheetViewModel: BottomSheetViewModel by  activityViewModels()
     private lateinit var binding: FragmentNoteDetailsBinding
 
     var noteTitle: String? = null
