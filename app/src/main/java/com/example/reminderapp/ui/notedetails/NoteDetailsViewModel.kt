@@ -81,6 +81,14 @@ class NoteDetailsViewModel(application: Application, private val noteIdentifier:
         }
     }
 
+    fun deleteNote(note:Notes){
+        viewModelScope.launch {
+            repository.delete(note)
+
+        }
+
+    }
+
     fun updateNote() {
         editableNote.apply {
             title = titleEditText.value!!

@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">ReminderApp</string>
+    <string name="app_name">Tasks</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_title">Enter title</string>
     <string name="no_notes_text_placeholder">You\'ve finished all your tasks.Take a second to recharge.</string>
     <string name="no_notes_title_placeholder">A fresh start!</string>
-    <string name="text_enter_a_title">new task</string>
+    <string name="text_enter_a_title">New task</string>
     <string name="text_due_date">Add date/time</string>
     <string name="text_note_details">Add details</string>
     <string name="text_save">Save</string>
@@ -38,4 +38,5 @@
     <string name="done">Done</string>
     <string name="cancel">Cancel</string>
     <string name="setDate">Set Date</string>
+    <string name="myTasksHeader">My Tasks</string>
 </resources>

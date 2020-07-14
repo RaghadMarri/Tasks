@@ -1,11 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionMenuTextColor">@color/appBarTextColor</item>
+        <item name="android:textColorPrimary">@color/appBarTextColor</item>
     </style>
 
     <style name="PickerDialogTheme" parent="@style/Theme.AppCompat.Light.Dialog">
@@ -31,5 +33,6 @@
         <item name="android:button">@drawable/custom_checkbox</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
 
 </resources>

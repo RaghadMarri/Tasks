@@ -34,7 +34,6 @@ class NoteListFragment() : Fragment(),NoteListAdapter.NoteClickListener {
     ): View? {
 
 
-
         binding = FragmentNoteListBinding.inflate(inflater, container, false)
         context?: return binding.root
         noteAdapter = NoteListAdapter(this)

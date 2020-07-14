@@ -24,4 +24,6 @@
     <dimen name="small_margin">8dp</dimen>
     <dimen name="list_item_padding">8dp</dimen>
     <dimen name="empty_notes_reminder_image_dimens">96dp</dimen>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
 </resources>

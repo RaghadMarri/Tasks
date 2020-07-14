@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.reminderapp.R
 import com.example.reminderapp.database.Notes
@@ -28,7 +30,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var editAddDate: ImageView
     private lateinit var binding: AddingNoteBottomSheetBinding
 
-   private lateinit var bottomSheetViewModel: BottomSheetViewModel
+   private val bottomSheetViewModel: BottomSheetViewModel by  activityViewModels()
 
 
 
@@ -52,7 +54,7 @@ class BottomSheetFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bottomSheetViewModel = ViewModelProvider(this).get(BottomSheetViewModel::class.java)
+       // bottomSheetViewModel = ViewModelProvider(this).get(BottomSheetViewModel::class.java)
         binding.viewModel= bottomSheetViewModel
 
         initView()
