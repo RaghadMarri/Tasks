@@ -1,11 +1,12 @@
-package com.example.reminderapp.database
+package com.example.reminderapp.database.source.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.reminderapp.database.Notes
 
-@Database(entities = arrayOf(Notes::class), version = 1, exportSchema = false)
+@Database(entities =[ Notes::class], version = 5, exportSchema = false)
 abstract class NoteRoomDatabase: RoomDatabase() {
 
     abstract fun noteDao(): NoteDao
@@ -15,7 +16,8 @@ abstract class NoteRoomDatabase: RoomDatabase() {
         private var INSTANCE: NoteRoomDatabase? = null
 
         fun getDatabase(context: Context): NoteRoomDatabase {
-            val tempInstance = INSTANCE
+            val tempInstance =
+                INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
@@ -24,7 +26,8 @@ abstract class NoteRoomDatabase: RoomDatabase() {
                     context.applicationContext,
                     NoteRoomDatabase::class.java,
                     "note_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 return instance
             }

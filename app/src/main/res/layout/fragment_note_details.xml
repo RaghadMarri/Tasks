@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.reminderapp.ui.notedetails.NoteDetailsViewModel" />
+            type="com.example.reminderapp.ui.notedetails.BottomSheetViewModel" />
     </data>
 
     <LinearLayout
@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/default_view_margin"
+            android:text="@={viewModel.titleEditText}"
             android:background="@android:color/transparent"
             android:hint="@string/enter_title"
             android:minHeight="@dimen/toolbar_height"
@@ -70,6 +71,7 @@
                 android:id="@+id/note_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.detailsEditText}"
                 android:padding="4dp"
                 android:layout_marginLeft="5dp"
                 android:background="@android:color/transparent"
@@ -96,15 +98,48 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_event_available_details" />
 
-            <TextView
-                android:id="@+id/date_time_details"
+
+            <LinearLayout
+                android:id="@+id/pick_date_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:layout_marginLeft="5dp"
-                android:hint="@string/text_due_date"
-                android:textColor="#000"
-                android:textSize="15sp" />
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/date_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@{viewModel.datePickerText}"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/text_due_date"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/time_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@{viewModel.timePickerText}"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/text_due_date"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/repeat_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="@{viewModel.noteRepeatUnit}"
+                    android:layout_marginLeft="5dp"
+                    android:hint="@string/text_due_date"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+
+
 
 
         </LinearLayout>

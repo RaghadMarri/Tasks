@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Tasks</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_title">Enter title</string>
     <string name="no_notes_text_placeholder">You\'ve finished all your tasks.Take a second to recharge.</string>
@@ -11,25 +10,17 @@
     <string name="text_note_details">Add details</string>
     <string name="text_save">Save</string>
     <string name="title_activity_base">BaseActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+
+
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="your_title">My Tasks</string>
     <string name="note_details">Add details</string>
 
-    <string name="notification_title">Reminder</string>
-    <string name="notification_subtitle">Something To do!</string>
 
-    <string name="notification_schedule_title">Schedule notification:\u00a0</string>
-    <string name="notification_schedule_pattern">dd.MM.yy \u00B7 HH:mm</string>
-    <string name="notification_schedule_error">
-        Schedule notification: Incorrect Date and Time
-    </string>
+
+
     <string name="listapps_title">My Tasks</string>
     <string name="empty_task_message">Task can\'t be empty</string>
     <string name="pick_Time_Date"><![CDATA[Pick date & time]]></string>
@@ -39,4 +30,21 @@
     <string name="cancel">Cancel</string>
     <string name="setDate">Set Date</string>
     <string name="myTasksHeader">My Tasks</string>
+    <string name="deleteAllCompleted">Delete All Completed Tasks</string>
+
+
+
+
+    <string name="notification_title">Reminder</string>
+    <string name="notification_text">you have something to do!!</string>
+
+    <string name="fcm_message">FCM Message</string>
+    <string name="message_subscribe_failed">Failed to subscribe to topic</string>
+    <string name="message_subscribed">Subscribed to topic</string>
+    <string name="reminder_notification_channel_id" translatable="false">reminder_channel</string>
+    <string name="reminder_notification_channel_name" translatable="true">Reminder</string>
+    <string name="timer_ready">Here you go!</string>
+    <string name="snooze">Cancel</string>
+
+
 </resources>

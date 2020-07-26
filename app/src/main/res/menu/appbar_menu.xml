@@ -2,10 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/options"
+        android:id="@+id/deletCompleted"
         android:icon="@drawable/ic_more_vert_black_24dp"
-        app:showAsAction="always"
-        android:title="more" />
+        app:showAsAction="never"
+        android:title="@string/deleteAllCompleted" />
+
+
 
 
 

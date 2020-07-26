@@ -1,48 +1,30 @@
 package com.example.reminderapp.ui.notedetails
 
 import android.os.Bundle
-import android.provider.ContactsContract
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-
-
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.navArgs
 import com.example.reminderapp.R
-import com.example.reminderapp.database.Notes
 import com.example.reminderapp.databinding.FragmentNoteDetailsBinding
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class NoteDetailsFragment : Fragment() {
 
-    private lateinit var editNotetitle: EditText
-    private lateinit var editNoteDescription: EditText
-    private lateinit var note: Notes
-    private val bottomSheetViewModel: BottomSheetViewModel by  activityViewModels()
     private lateinit var binding: FragmentNoteDetailsBinding
-
-    var noteTitle: String? = null
-    private var noteDescription: String? = null
-    private var noteDate: String? = null
-    private var noteTime: String? = null
-    private var noteRepeat = false
+    private val args: NoteDetailsFragmentArgs by navArgs()
+    private val bottomSheetViewModel: BottomSheetViewModel by activityViewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        noteTitle= arguments?.getString("NoteTitle")
-        noteDescription= arguments?.getString("NoteDetails")
-        noteDate= arguments?.getString("NoteDate")
-        noteTime= arguments?.getString("NoteTime")
-
-
-     //   noteRepeat = arguments?.getString("NoteRepeat")
+        bottomSheetViewModel.noteIdentifier = args.noteId
+        bottomSheetViewModel.initializeNote()
 
 
     }
@@ -51,35 +33,54 @@ class NoteDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         binding = FragmentNoteDetailsBinding.inflate(inflater, container, false)
-        editNotetitle=binding.noteTitle
-        editNoteDescription=binding.noteDetails
-        val toolbar=binding.myToolbar
+
+
+
+        binding.lifecycleOwner = this
+        binding.viewModel = bottomSheetViewModel
+
+        binding.pickDateTime.setOnClickListener {
+            val timeDatePickerDialog = TimeDatePickerDialog()
+            timeDatePickerDialog.show(childFragmentManager, timeDatePickerDialog.tag)
+
+        }
+
+        bottomSheetViewModel.datePickerText.observe(viewLifecycleOwner, Observer {
+            binding.dateDetails.text = bottomSheetViewModel.datePickerText.value
+        })
+
+        val toolbar = binding.myToolbar
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setHasOptionsMenu(true)
-
-
-       editNotetitle.setText(noteTitle)
-        editNoteDescription.setText(noteDescription)
-
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.task_details_fragment_menu,menu)
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-            return when (item.itemId) {
-                android.R.id.home -> {
-                    (activity as AppCompatActivity).onBackPressed()
-                    true
 
-                }
-                else -> false
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.task_details_fragment_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.delete_note -> {
+                bottomSheetViewModel.deleteNote(NoteDetailsFragmentArgs.fromBundle(requireArguments()).noteId)
+                NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_noteDetailsFragment_to_noteListFragment)
+                true
             }
+
+            android.R.id.home -> {
+                bottomSheetViewModel.updateExistingNote()
+                (activity as AppCompatActivity).onBackPressed()
+                true
+
+            }
+            else -> false
         }
 
+    }
 
 }
